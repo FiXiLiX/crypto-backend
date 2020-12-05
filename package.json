@@ -1,0 +1,34 @@
+{
+  "name": "cryptoexchange",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "nodemon index.js",
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "dotenv": "^8.2.0",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "async-redis": "^1.1.7",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "chai-http": "^4.3.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.7.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongoose": "^5.11.2",
+    "nodemailer": "^6.4.16",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "redis": "^3.0.2"
+  }
+}
