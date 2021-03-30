@@ -14,6 +14,11 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
+    }, 
+    dolars: {
+        type: Number, 
+        required: true,
+        default: 10000,
     }
 })
 

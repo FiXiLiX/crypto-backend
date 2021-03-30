@@ -62,7 +62,7 @@ router.post('/login', [
                 const token = jwt.sign(JSON.stringify(payload), process.env.SECRET_KEY);
 
                 user.password = undefined;
-                res.status(200).json({token, user});
+                return res.status(200).json({token, user});
             });
         }catch(error){return res.status(400).json(errorHandler(error))};
     })(req, res);

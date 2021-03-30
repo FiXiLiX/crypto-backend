@@ -1,3 +1,5 @@
+const checkForData = require('./helpers/check-for-data')
+
 const loadMongoDB = function(){
     mongodbUrl = process.env.NODE_ENV==='test'?process.env.MONGODB_URL_TEST:process.env.MONGODB_URL
     const mongoose = require('mongoose');
@@ -5,6 +7,7 @@ const loadMongoDB = function(){
     const db = mongoose.connection;
     db.once('open', () => {
         console.log('MongoDB connected');
+        checkForData()
     });
     db.on('error', (error) => {
         console.log(error);

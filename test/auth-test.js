@@ -382,7 +382,7 @@ describe('Reset password', function() {
 describe('User', function(){
     it('Should load user', function(done) {
         chai.request(app)
-        .get('/api/user/fixilix')
+        .get('/api/users/fixilix')
         .set('content-type', 'application/x-www-form-urlencoded')
         .set('Authorization', userData.token)
         .end((err, res) => {
@@ -392,7 +392,7 @@ describe('User', function(){
     })
     it('Should load user again', function(done) {
         chai.request(app)
-        .get('/api/user/fixilix')
+        .get('/api/users/fixilix')
         .set('Authorization', userData.token)
         .end((err, res) => {
             res.should.have.status(200);
@@ -401,10 +401,29 @@ describe('User', function(){
     })
     it('Should throw error that user do not exist', function(done) {
         chai.request(app)
-        .get('/api/user/fixili')
+        .get('/api/users/fixili')
         .set('Authorization', userData.token)
         .end((err, res) => {
             res.should.have.status(400);
+            done();
+        })
+    })
+})
+
+describe('Coins', function(){
+    it('Should load coins', function(done) {
+        this.timeout(0)
+        chai.request(app)
+        .get('/api/coins')
+        .set('Authorization', userData.token)
+        .send({
+            start: 0,
+            limit: 5000,
+            search: ''
+        })
+        .end((err, res) => {
+            res.should.have.status(200);
+            res.body.coins.should.be.a('array');
             done();
         })
     })
